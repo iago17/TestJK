@@ -52,9 +52,9 @@ jobs:
           echo ${{ secrets.AUTH_URL_PROD}} > ./AUTH_URL.txt
           sfdx auth:sfdxurl:store -f ./AUTH_URL.txt -s -a ${{ inputs.org }}
       - name: SETUP UAT (${{ inputs.org }})
-        if: inputs.org == 'UAT'
+        if: inputs.org == 'DEV'
         run: | 
-          echo ${{ secrets.AUTH_URL_UAT}} > ./AUTH_URL.txt
+          echo ${{ secrets.AUTH_URL_DEV}} > ./AUTH_URL.txt
           sfdx auth:sfdxurl:store -f ./AUTH_URL.txt -s -a ${{ inputs.org }}
       
       # running Validate or deploy based on user option (else statement not available)
